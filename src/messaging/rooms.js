@@ -44,9 +44,7 @@ module.exports = function (Messaging) {
 
 	function modifyRoomData(rooms, fields) {
 		rooms.forEach((data) => {
-			if (!data) {
-				return;
-			}
+			if (!data) { return; }
 			db.parseIntFields(data, intFields, fields);
 			data.roomName = validator.escape(String(data.roomName || ''));
 			data.public = parseInt(data.public, 10) === 1;
